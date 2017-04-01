@@ -11,20 +11,26 @@ var Twitter = new twit(config);
 // find a random tweet and 'favorite' it
 var favoriteTweet = function(){  
   var params = {
-      q: '#aprilfools, #aprilfoolsday',  // REQUIRED
-      result_type: 'recent', //recent tweets only.
-      lang: 'en'
+      screen_name: 'realDonaldTrump',
+      count: 10,
+//      q: '#aprilfools, #aprilfoolsday',  // REQUIRED
+//      result_type: 'recent', //recent tweets only.
+      //lang: 'en'
   }
+  
+  //console.log("Params: " + params.q);
   // find the tweet
-  Twitter.get('search/tweets', params, function(err,data){
+  Twitter.get('statuses/user_timeline', params, function(err,data){
 
     // find tweets
-    var tweet = data.statuses;
-    
+      //console.log(data);
+    var tweet = data; //.statuses for actual tweets. 
+    //console.log(tweet);
       
       
     for(var result in tweet) {
         console.log("Resulting text: " + tweet[result].text);
+        console.log("Created At: " + tweet[result].created_at);
     }  
       
     //console.log(tweet);
