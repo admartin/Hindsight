@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Hindsight</title>
+
+        <!-- Bootstrap Core CSS -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <!-- Navbar color override -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+
+    <body>
+        
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Hindsight</a>
+            </div>
+        </nav>
+        
+        <div class="row">
+            <div class="col-sm-offset-2 col-md-6">
+                <label for="search">Search for a Twitter profile here:</label>
+            </div>
+        </div>
+		<div class="row">
+	        <div class="col-sm-offset-2 col-md-6">
+	    		<div class="input-group">
+		            <input type="text" class="form-control" id="search" name="search" placeholder="Username"
+		                   pattern="[a-zA-Z0-9_]{1,15}" 
+		                   title="Invalid format. Usernames may only include numbers, letters, and _ and must be less than 15 characters in length.">
+		            <div class="input-group-btn">
+                        <a href="main.html" class="btn btn-default" role="button"><i class="glyphicon glyphicon-search"></i></a>
+                    </div>
+	            </div>
+	        </div>
+		</div>
+    </body>
+</html>
