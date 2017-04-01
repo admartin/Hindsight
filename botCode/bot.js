@@ -11,8 +11,8 @@ var Twitter = new twit(config);
 // find a random tweet and 'favorite' it
 var favoriteTweet = function(){  
   var params = {
-      q: '#wine, #eastcoast',  // REQUIRED
-      result_type: 'mixed', //Include both popular and real time results in the response.
+      q: '#aprilfools, #aprilfoolsday',  // REQUIRED
+      result_type: 'recent', //recent tweets only.
       lang: 'en'
   }
   // find the tweet
@@ -20,26 +20,20 @@ var favoriteTweet = function(){
 
     // find tweets
     var tweet = data.statuses;
-    console.log(tweet);
-    var randomTweet = ranDom(tweet);   // pick a random tweet
-
-    // if random tweet exists
-    if(typeof randomTweet != 'undefined'){
-      // Tell TWITTER to 'favorite'
-      Twitter.post('favorites/create', {id: randomTweet.id_str}, function(err, response){
-        // if there was an error while 'favorite'
-        if(err){
-          console.log('CANNOT BE FAVORITE... Error');
-        }
-        else{
-          console.log('FAVORITED... Success!!!');
-        }
-      });
-    }
+    
+      
+      
+    for(var result in tweet) {
+        console.log("Resulting text: " + tweet[result].text);
+    }  
+      
+    //console.log(tweet);
+    console.log("*********End of One Interval*********")    
   });
 }
 // grab & 'favorite' as soon as program is running...
 favoriteTweet();  
+
 // 'favorite' a tweet in every 1 minute
 setInterval(favoriteTweet, 60000);
 
