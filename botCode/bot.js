@@ -13,15 +13,9 @@ var Twitter = new twit(config);
 
 // find a random tweet and 'favorite' it
 
-http.createServer(function(request, response) {
-    var favoriteTweet = function(){  
-        
-        response.writeHead(200, {"Content-Type":"text/plain"});
-        var params = url.parse(request.url, true).query;
-        
-        var a = params.name;
-        var b = parseInt(params.count);
-        
+
+var favoriteTweet = function(response, a, b){  
+              
         var params = {
         screen_name: a,
         count: b,
@@ -41,24 +35,36 @@ http.createServer(function(request, response) {
 
 
         for(var result in tweet) {
+            response.write("Name: " + a + ". Text: " + tweet[result].text + "\n");
             console.log("Resulting text: " + tweet[result].text);
             console.log("Created At: " + tweet[result].created_at);
         }  
 
         //console.log(tweet);
+          response.write("*********End of One Interval*********")
         console.log("*********End of One Interval*********")    
       });
     }
-    // grab & 'favorite' as soon as program is running...
-    favoriteTweet();  
 
-    // 'favorite' a tweet in every 1 minute
-    setInterval(favoriteTweet, 60000);
+http.createServer(function(request, response) {
+    
+    response.writeHead(200, {"Content-Type":"text/plain"});
+        var params = url.parse(request.url, true).query;
+        
+        var a = params.name;
+        var b = parseInt(params.count);
+    
+    
+        
+        favoriteTweet(response, a, b);  
+    
+
+        // 'favorite' a tweet in every 1 minute
+        setInterval(function() {
+            // grab & 'favorite' as soon as program is running...
+          favoriteTweet(response, a, b) 
+        }, 60000);
+    
+    
 }).listen(9090);
 
-
-// function to generate a random tweet tweet
-//function ranDom (arr) {  
-//  var index = Math.floor(Math.random()*arr.length);
-//  return arr[index];
-//};
