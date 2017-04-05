@@ -15,7 +15,7 @@ var searchTweets = function(){
   var params = {
       q: 'since:2017-04-01',  // REQUIRED
       result_type: 'recent',
-      count:'100',
+      count:'10',
       lang: 'en'
   }
   // find the tweet
@@ -24,8 +24,13 @@ var searchTweets = function(){
     // find tweets
     var tweet = data.statuses;
 
+      //console.log(tweet);
    for(var result in tweet) {
        console.log("text: " + tweet[result].text);
+       var created_at = tweet[result].created_at;
+       var date = created_at.split(" ");
+       console.log("Posted at: " + date[1] + " " + date[2] + " " + date[5]);
+       console.log("User: " + tweet[result].user.screen_name);
    }
       
   });
