@@ -37,6 +37,52 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `UserData`.`cat_stats`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `UserData`.`cat_stats` (
+  `tweet_total` INT NULL,
+  `category_idCategory` INT(11) NOT NULL,
+  `user_idUser` INT(11) NOT NULL,
+  PRIMARY KEY (`category_idCategory`, `user_idUser`),
+  INDEX `fk_cat_stats_category_idx` (`category_idCategory` ASC),
+  INDEX `fk_cat_stats_user1_idx` (`user_idUser` ASC),
+  CONSTRAINT `fk_cat_stats_category`
+    FOREIGN KEY (`category_idCategory`)
+    REFERENCES `userdata`.`category` (`idCategory`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cat_stats_user1`
+    FOREIGN KEY (`user_idUser`)
+    REFERENCES `userdata`.`user` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `UserData`.`friends`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `UserData`.`friends` (
+  `user_id` INT(11) NOT NULL,
+  `friend_id` INT(11) NOT NULL,
+  `tweet_total` VARCHAR(45) NULL,
+  PRIMARY KEY (`user_id`, `friend_id`),
+  INDEX `fk_friends_user2_idx` (`friend_id` ASC),
+  CONSTRAINT `fk_friends_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `userdata`.`user` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_friends_user2`
+    FOREIGN KEY (`friend_id`)
+    REFERENCES `userdata`.`user` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+USE `userdata` ;
+
+-- -----------------------------------------------------
 -- Table `UserData`.`Tweet`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `UserData`.`Tweet` (
