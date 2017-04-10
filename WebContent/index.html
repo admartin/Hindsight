@@ -4,10 +4,13 @@
     <head>
         <title>Hindsight</title>
 
+        <!-- Jquery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
         <!-- Bootstrap Core CSS -->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!--<script src="netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
         
         <!-- Navbar color override -->
         <link rel="stylesheet" href="css/bootstrap.css">
@@ -23,20 +26,27 @@
         
         <div class="row">
             <div class="col-sm-offset-2 col-md-6">
-                <label for="search">Search for a Twitter profile here:</label>
+
+                <form method="GET" id="submission" action="../php/firstSearch.php">
+                    <div class="form-group">
+                        <label for="username">Search Term:</label>
+                        <input type="search" class="form-control" id="username" name="username" placeholder="Enter a Username to Search">
+                    </div>
+                    <button type="submit" id="submitButton" value="Submit">Search!</button>
+                </form>
             </div>
         </div>
-		<div class="row">
-	        <div class="col-sm-offset-2 col-md-6">
-	    		<div class="input-group">
-		            <input type="text" class="form-control" id="search" name="search" placeholder="Username"
-		                   pattern="[a-zA-Z0-9_]{1,15}" 
-		                   title="Invalid format. Usernames may only include numbers, letters, and _ and must be less than 15 characters in length.">
-		            <div class="input-group-btn">
-                        <a href="main.html" class="btn btn-default" role="button"><i class="glyphicon glyphicon-search"></i></a>
-                    </div>
-	            </div>
-	        </div>
-		</div>
+		<!--<div class="row">-->
+
+	    		<!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
+		            <!--&lt;!&ndash;<input type="text" class="form-control" id="search" name="search" placeholder="Username"&ndash;&gt;-->
+		                   <!--&lt;!&ndash;pattern="[a-zA-Z0-9_]{1,15}" &ndash;&gt;-->
+		                   <!--&lt;!&ndash;title="Invalid format. Usernames may only include numbers, letters, and _ and must be less than 15 characters in length.">&ndash;&gt;-->
+		            <!--&lt;!&ndash;<div class="input-group-btn">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="main.html" class="btn btn-default" role="button"><i class="glyphicon glyphicon-search"></i></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+	            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+	        <!--</div>-->
+		<!--</div>-->
     </body>
 </html>
