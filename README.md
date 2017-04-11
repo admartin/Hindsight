@@ -5,7 +5,21 @@ Utilises highcharts for interactive graphs
 
 download here! - http://www.highcharts.com/download
 
-*How to Run The Bot*
-	**In order to successfully run the bot, you first need to start it by typing node bot.js in its directory. Then when you go online
-	you have to type localhost:90900/name=$&count=$ where the $ (dollar signs) is a placeholder for the screen_name of the user you are interested 
-	in; say like bbc or cnn, and the count is how many tweets do we want to get back. According to Twitter's API their maxiumum is about 200.**
+##How to Run The Bot
+    In order to run the bot, you need to change directory (cd) into the botCode folder,
+    after that you need to run the following command: node bot.js. Once that command is 
+    executed the bot will start running and populating the server. 
+    
+##How to Use the Website
+    Using the website itself is very straight forward, the landing page (index.html) prompts
+    you to search for a specific twitter username, assuming the user is in our database you
+    will be able to see his or her tweets. The trends portion of the website will display
+    useful chart information about the user's tweets and their categorization along with the
+    rest of our database to allow comparisons between the user and the rest of twitter. 
+    
+##Authors
+    Michael Kovalsky
+    Abbey Martin
+    Viraj Patel
+    Kishan Patel
+	

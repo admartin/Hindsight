@@ -5,17 +5,9 @@
 
 function displayTweets() {
 
-
-    var username = $("#username").val();
-
-    alert("Username is: " + username);
-
-
-    $.get("../php/displayTweets.php", {
-
-        },
+    $.get("../php/displayTweets.php", 
         function (data) {
-           alert(data);
+          
            $("#resultArea").html(data);
 
         }
