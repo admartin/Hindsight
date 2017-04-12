@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="rawdata@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="rawdata">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="employees"/>
+    <schema id="4" parent="1" name="gis2"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="project2"/>
+    <schema id="9" parent="1" name="sys"/>
+    <table id="10" parent="2" name="category"/>
+    <table id="11" parent="2" name="tweet"/>
+    <table id="12" parent="2" name="user"/>
+    <column id="13" parent="10" name="idCategory">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="10" name="type">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="15" parent="10" name="idCategory_UNIQUE">
+      <ColNames>idCategory</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="16" parent="10" name="type_UNIQUE">
+      <ColNames>type</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="17" parent="10" name="PRIMARY">
+      <ColNames>idCategory</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="18" parent="10" name="idCategory_UNIQUE">
+      <ColNames>idCategory</ColNames>
+      <UnderlyingIndexName>idCategory_UNIQUE</UnderlyingIndexName>
+    </key>
+    <key id="19" parent="10" name="type_UNIQUE">
+      <ColNames>type</ColNames>
+      <UnderlyingIndexName>type_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="20" parent="11" name="tweet">
+      <Position>1</Position>
+      <DataType>varchar(150)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="11" name="posted">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="11" name="Category_idCategory">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="23" parent="11" name="User_username">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="11" name="fk_Tweet_Category">
+      <ColNames>Category_idCategory</ColNames>
+    </index>
+    <index id="25" parent="11" name="fk_Tweet_User1">
+      <ColNames>User_username</ColNames>
+    </index>
+    <key id="26" parent="11" name="PRIMARY">
+      <ColNames>tweet</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="27" parent="11" name="fk_Tweet_Category">
+      <ColNames>Category_idCategory</ColNames>
+      <RefSchemaName>rawdata</RefSchemaName>
+      <RefTableName>category</RefTableName>
+      <RefColNames>idCategory</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="28" parent="11" name="fk_Tweet_User1">
+      <ColNames>User_username</ColNames>
+      <RefSchemaName>rawdata</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>username</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="29" parent="12" name="username">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="30" parent="12" name="PRIMARY">
+      <ColNames>username</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
