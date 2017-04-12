@@ -29,6 +29,7 @@ async.series([
     ]);
 
 
+
 function doConnect() {
     con.connect(function(err) {
         if(err) {

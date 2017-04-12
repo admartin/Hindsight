@@ -5,9 +5,10 @@
 
 function displayTweets() {
 
+    $("#graphResult").hide();
     $.get("../php/displayTweets.php", 
         function (data) {
-          
+            alert(data);
            $("#resultArea").html(data);
 
         }
