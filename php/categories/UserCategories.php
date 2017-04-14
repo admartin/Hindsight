@@ -106,30 +106,48 @@ class UserCategories
          * but, keep in mind that once it hits a certain keyword just break out of it. Perhaps even, only decide on "other" if it hit nothing at all.
          * */
 
+        $notOther = false;
+
         foreach ($tweetArray as $value) {
             strtolower($value);
+            //echo "\n\n **** Value is: " . $value;
             if (in_array($value, array_map("strtolower", self::$politics))) {
+                $notOther = true;
                 echo "\nOur " . $tweet . " is under politics\n";
+                break;
             }
             else if (in_array($value, array_map("strtolower", self::$food))) {
+                $notOther = true;
                 echo "\nOur " . $tweet . " is under food\n";
+                break;
             }
             else if (in_array($value, array_map("strtolower", self::$technology))) {
+                $notOther = true;
                 echo "\nOur " . $tweet . " is under Technology\n";
+                break;
             }
             else if (in_array($value, array_map("strtolower", self::$entertainment))) {
+                $notOther = true;
                 echo "\nOur " . $tweet . " is under Entertainment\n";
+                break;
             }
             else if (in_array($value, array_map("strtolower", self::$sports))) {
+                $notOther = true;
                 echo "\nOur " . $tweet . " is under Sports\n";
+                break;
             }
             else if (in_array($value, array_map("strtolower", self::$animals))) {
+                $notOther = true;
                 echo "\nOur " . $tweet . " is under Animals\n";
-            }
-            else {
-                echo "\nOur " . $tweet . "Is Under Other\n";
+                break;
             }
         }
+
+        if($notOther == true) {
+            echo "Our " . $tweet . " is in other";
+        }
+
+
 
     }
 }
