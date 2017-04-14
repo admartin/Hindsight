@@ -97,27 +97,39 @@ class UserCategories
     public static function decideCategory($tweets) {
 
         $tweet = $tweets;
+        $tweetArray = explode(" ", $tweet);
 
-        if(in_array($tweet, self::$food)) {
-            echo "\nOur " . $tweet . " is under food\n";
+
+
+        /*
+         * Okay, so at this time we are just going over the whole splitted (aka, exploded) tweet. However, what we want to do is go over the tweet, yes,
+         * but, keep in mind that once it hits a certain keyword just break out of it. Perhaps even, only decide on "other" if it hit nothing at all.
+         * */
+
+        foreach ($tweetArray as $value) {
+            strtolower($value);
+            if (in_array($value, array_map("strtolower", self::$politics))) {
+                echo "\nOur " . $tweet . " is under politics\n";
+            }
+            else if (in_array($value, array_map("strtolower", self::$food))) {
+                echo "\nOur " . $tweet . " is under food\n";
+            }
+            else if (in_array($value, array_map("strtolower", self::$technology))) {
+                echo "\nOur " . $tweet . " is under Technology\n";
+            }
+            else if (in_array($value, array_map("strtolower", self::$entertainment))) {
+                echo "\nOur " . $tweet . " is under Entertainment\n";
+            }
+            else if (in_array($value, array_map("strtolower", self::$sports))) {
+                echo "\nOur " . $tweet . " is under Sports\n";
+            }
+            else if (in_array($value, array_map("strtolower", self::$animals))) {
+                echo "\nOur " . $tweet . " is under Animals\n";
+            }
+            else {
+                echo "\nOur " . $tweet . "Is Under Other\n";
+            }
         }
-        else if(in_array(strtolower($tweet), array_map("strtolower", self::$politics))) {
-            echo "\nOur " . $tweet . " is under politics\n";
-        }
-        else if(in_array($tweet, self::$technology)) {
-            echo "\nOur " . $tweet . " is under Technology\n";
-        }
-        else if(in_array($tweet, self::$entertainment)) {
-            echo "\nOur " . $tweet . " is under Entertainment\n";
-        }
-        else if(in_array($tweet, self::$sports)) {
-            echo "\nOur " . $tweet . " is under Sports\n";
-        }
-        else if(in_array($tweet, self::$animals)) {
-            echo "\nOur " . $tweet . " is under Animals\n";
-        }
-        else {
-            echo "\nOur " . $tweet . "Is Under Other\n";
-        }
+
     }
 }
