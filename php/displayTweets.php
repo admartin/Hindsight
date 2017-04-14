@@ -1,6 +1,7 @@
 <?php
 
 require_once ("twitter_php_interface/TwitterAPIExchange.php");
+require_once ("checkIfPresent.php");
 session_start();
 
 /**
@@ -35,12 +36,14 @@ if(isset($_SESSION['username'])) {
             echo "Error With Twiiter API Exchange";
         } else {
 
+
             $htmlBody = ""; // an empty html body response for now.
             $tweetsParagraph = "";
             $tweet = "";
 
             foreach ($result as $item) {
                 $tweet = $item['text'];
+                PrintTweetCategory($tweet);
                 $tweetsParagraph .= "<p>" ."$tweet</p>";
             }
 
