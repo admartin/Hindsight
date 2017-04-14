@@ -23,73 +23,34 @@ $requestMethod = "GET";
 
 if(isset($_SESSION['username'])) {
 
-    $query = '?screen_name=' . $_SESSION['username'] . '&count=100';
 
-    $twitter = new TwitterAPIExchange($credentials);
-    $result = json_decode($twitter->setGetfield($query)
-        ->buildOauth($url, $requestMethod)
-        ->performRequest(), $assoc = TRUE);
+        $query = '?screen_name=' . $_SESSION['username'] . '&count=100';
 
-    if($result["error"][0]["message"] != "") {
-        echo "Error With Twiiter API Exchange";
-    } else {
+        $twitter = new TwitterAPIExchange($credentials);
+        $result = json_decode($twitter->setGetfield($query)
+            ->buildOauth($url, $requestMethod)
+            ->performRequest(), $assoc = TRUE);
 
-        $htmlBody = ""; // an empty html body response for now.
-        $tweetsParagraph = "";
-        $tweet = "";
+        if($result["error"][0]["message"] != "") {
+            echo "Error With Twiiter API Exchange";
+        } else {
 
-        foreach ($result as $item) {
-            $tweet = $item['text'];
-            $tweetsParagraph .= "<p>" ."$tweet</p>";
-        }
+            $htmlBody = ""; // an empty html body response for now.
+            $tweetsParagraph = "";
+            $tweet = "";
 
-        $htmlBody = <<<END
-                $tweetsParagraph;
+            foreach ($result as $item) {
+                $tweet = $item['text'];
+                $tweetsParagraph .= "<p>" ."$tweet</p>";
+            }
+
+            $htmlBody = <<<END
+                    $tweetsParagraph;
 END;
 
-        echo $htmlBody;
-    }
-
-//        $servername = "localhost:3306"; //modify this with your own server
-//        $dbusername = "root"; //Modify this with your own username
-//        $dbpassword = "Jaljap2732!"; //modify this with your own password
-//
-//        try {
-//
-//            $connection = new PDO("mysql:host=$servername;dbname=rawdata",
-//                $dbusername,
-//                $dbpassword
-//            );
-//
-//            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//
-//            $query = $connection->prepare("SELECT t.tweet FROM tweet t WHERE
-//                t.User_username = ?");
-//
-//            $query->execute(array($_SESSION['username']));
-//
-//            $htmlBody = ""; // an empty html body response for now.
-//            $tweetsParagraph = "";
-//            $tweet = "";
-//
-//            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-//
-//                $tweet = $row["tweet"];
-//                $tweetsParagraph .= "<p>Tweet: $tweet</p>";
-//
-//            }
-//
-//            $htmlBody = <<<END
-//                $tweetsParagraph;
-//END;
-//
-//            echo $htmlBody;
-//
-//        } catch (PDOException $e) {
-//            echo "Connection Failed With Error: " .$e->getMessage();
-//        }
-
-    } else {
+            echo $htmlBody;
+        }
+} else {
         echo "Error with session variable, username not set!";
         die();
-    }
+}

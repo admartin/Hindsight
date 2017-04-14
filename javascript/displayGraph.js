@@ -5,8 +5,6 @@
 function displayGraph() {
     alert("Work in Progress");
 
-    $('#graphResult').show();
-
     $('#graphResult').highcharts({
         chart: {
             type: 'bar'
