@@ -45,7 +45,7 @@ function searchTweets() {
     var params = {
           q: 'since:2017-04-07',  // REQUIRED
           result_type: 'recent',
-          count:'100',
+          count:'5',
           lang: 'en'
     }
     

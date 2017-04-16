@@ -51,7 +51,7 @@ class UserCategories
         self::$politics = array("Russia", "Syria", "France", "Belgium", "London", "Moscow", "Washington", "North Korea", "China", "Beijing", "Nuclear", "Nuclear War",
             "Terrorism", "War on Terror", "War on Drugs", "Police Brutality", "Senate", "House", "Duma", "Communist", "Communism", "Socialist", "Fascist", "Trump", "Putin",
             "Kim Jong Un", "CIA", "WikiLeaks", "Russian Hacking", "Elections", "Hillary Clinton", "Clinton", "Donald Trump", "President", "POTUS", "Debate", "CNN", "Fox News",
-            "BBC", "Liberal", "Conservative", "State of the Union", "Homosexuality", "Black Lives Matter", "BLM", "Obama");
+            "BBC", "Liberal", "Conservative", "State of the Union", "Homosexuality", "Black Lives Matter", "BLM", "Obama", "Military");
         require_once self::$politics;
     }
 
@@ -96,58 +96,68 @@ class UserCategories
 
     public static function decideCategory($tweets) {
 
-        $tweet = $tweets;
-        $tweetArray = explode(" ", $tweet);
-
-
-
         /*
          * Okay, so at this time we are just going over the whole splitted (aka, exploded) tweet. However, what we want to do is go over the tweet, yes,
          * but, keep in mind that once it hits a certain keyword just break out of it. Perhaps even, only decide on "other" if it hit nothing at all.
          * */
 
+        $tweet = $tweets;
+
         $notOther = false;
 
-        foreach ($tweetArray as $value) {
-            strtolower($value);
-            //echo "\n\n **** Value is: " . $value;
-            if (in_array($value, array_map("strtolower", self::$politics))) {
+        foreach (self::$politics as $result) {
+            if (strpos(strtolower($tweet), strtolower($result)) !== false) {
                 $notOther = true;
-                echo "\nOur " . $tweet . " is under politics\n";
-                break;
-            }
-            else if (in_array($value, array_map("strtolower", self::$food))) {
-                $notOther = true;
-                echo "\nOur " . $tweet . " is under food\n";
-                break;
-            }
-            else if (in_array($value, array_map("strtolower", self::$technology))) {
-                $notOther = true;
-                echo "\nOur " . $tweet . " is under Technology\n";
-                break;
-            }
-            else if (in_array($value, array_map("strtolower", self::$entertainment))) {
-                $notOther = true;
-                echo "\nOur " . $tweet . " is under Entertainment\n";
-                break;
-            }
-            else if (in_array($value, array_map("strtolower", self::$sports))) {
-                $notOther = true;
-                echo "\nOur " . $tweet . " is under Sports\n";
-                break;
-            }
-            else if (in_array($value, array_map("strtolower", self::$animals))) {
-                $notOther = true;
-                echo "\nOur " . $tweet . " is under Animals\n";
+                echo "POLITICS!!";
+                echo "Tweet is: " . $tweet;
                 break;
             }
         }
 
-        if($notOther == true) {
-            echo "Our " . $tweet . " is in other";
+        foreach (self::$entertainment as $result) {
+            if (strpos(strtolower($tweet), strtolower($result)) !== false) {
+                $notOther = true;
+                echo "entertainment!!";
+                echo "Tweet is: " . $tweet;
+                break;
+            }
+        }
+        foreach (self::$sports as $result) {
+            if (strpos(strtolower($tweet), strtolower($result)) !== false) {
+                $notOther = true;
+                echo "sports!!";
+                echo "Tweet is: " . $tweet;
+                break;
+            }
+        }
+        foreach (self::$animals as $result) {
+            if (strpos(strtolower($tweet), strtolower($result)) !== false) {
+                $notOther = true;
+                echo "animals!!";
+                echo "Tweet is: " . $tweet;
+                break;
+            }
+        }
+        foreach (self::$food as $result) {
+            if (strpos(strtolower($tweet), strtolower($result)) !== false) {
+                $notOther = true;
+                echo "food!!";
+                echo "Tweet is: " . $tweet;
+                break;
+            }
+        }
+        foreach (self::$technology as $result) {
+            if (strpos(strtolower($tweet), strtolower($result)) !== false) {
+                $notOther = true;
+                echo "technology!!";
+                echo "Tweet is: " . $tweet;
+                break;
+            }
         }
 
-
-
+        if($notOther == false) {
+            echo "OTHER";
+        }
+        
     }
 }

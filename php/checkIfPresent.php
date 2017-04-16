@@ -12,7 +12,7 @@ require_once ("categories/UserCategories.php");
 
 function PrintTweetCategory($tweet) {
 
-    echo "Tweet Passed in is: " . $tweet;
+    //echo "Tweet Passed in is: " . $tweet;
     UserCategories::decideCategory($tweet);
 
 }
