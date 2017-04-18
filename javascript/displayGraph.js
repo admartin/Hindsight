@@ -11,10 +11,8 @@ function displayGraph() {
     $.when(
         $.get("../php/displayGraph.php",
             function (data) {
+                console.log("Data" + data);
                 result = JSON.parse(data);
-                //$("#results").html(data);
-
-                console.log(result[2][0].type);
             }
         )
     ).then(function () {
@@ -25,7 +23,7 @@ function displayGraph() {
             finalResult[determineIndexToChange(result[i][0].type)] = parseInt(result[i][0].count);
         }
 
-        console.log(finalResult);
+        console.log('Final Result' + finalResult);
         $('#results').highcharts({
             chart: {
                 type: 'bar'

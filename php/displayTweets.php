@@ -26,7 +26,7 @@ $requestMethod = "GET";
 if(isset($_SESSION['username'])) {
 
 
-        $query = '?screen_name=' . $_SESSION['username'] . '&count=10';
+        $query = '?screen_name=' . $_SESSION['username'] . '&count=100';
 
         $twitter = new TwitterAPIExchange($credentials);
         $result = json_decode($twitter->setGetfield($query)
@@ -57,14 +57,8 @@ if(isset($_SESSION['username'])) {
                 echo $resultTwo['html'];
 
                 PrintTweetCategory($tweet, $user, $created_at);
-                //$tweetsParagraph .= "<p>" ."$tweet</p>";
+
             }
-
-//            $htmlBody = <<<END
-//                    $tweetsParagraph;
-//END;
-
-            //echo $htmlBody;
 } else {
         echo "Error with session variable, username not set!";
         die();

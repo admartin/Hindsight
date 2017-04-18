@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
+
     <head>
         <title>Hindsight</title>
 
@@ -18,12 +21,13 @@
         <!--Our own javascript-->
         <script src="../javascript/searchTweets.js"></script>
         <script src="../javascript/displayGraph.js"></script>
+        <script src="../javascript/changeUserName.js"></script>
 
         <!-- Navbar color override -->
         <link rel="stylesheet" href="css/bootstrap.css">
     </head>
 
-    <body>
+    <body onload="changeUserName()">
         
         <!--navbar-->
         <nav class="navbar navbar-default">
@@ -55,7 +59,7 @@
              <!-- sidebar -->
               <div class="col-sm-2">
                   <ul id="sidebar" class="nav nav-stacked affix text-right">
-                        <li><a href="#">Username <i class="glyphicon glyphicon-user"></i></a></li>
+                      <li ><a href="#"><span id="user">Username</span> <i class="glyphicon glyphicon-user"></i></a></li>
                         <br><br><br><br><br>
                         <li><a href="#" onclick="displayTweets()">Tweets <i class="fa fa-twitter"></i></a></li>
                         <li><a href="#" onclick="displayGraph()">Trends <i class="fa fa-line-chart"></i></a></li>
@@ -64,17 +68,17 @@
 
              <div id="results" class="results">
 
-                 <div id="graphResult" style="height: 100%; width: 80%"></div>
              </div>
 
         </div>
 
 
-        <div class="dataArea">
-            <div id="resultArea" >
+        <!-- For some reason our JS only puts things in the results area, and never in the resultsArea, this is very strange.  -->
 
-            </div>
+        <div class="resultsArea" id="resultsArea" >
+
         </div>
+
 
 
 
