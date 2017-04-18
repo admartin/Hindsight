@@ -58,8 +58,6 @@ if(isset($_SESSION['username'])) {
 
                 PrintTweetCategory($tweet, $user, $created_at);
                 //$tweetsParagraph .= "<p>" ."$tweet</p>";
-
-                echo $resultTwo;
             }
 
 //            $htmlBody = <<<END
