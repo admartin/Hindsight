@@ -1,0 +1,15 @@
+mysql> select t.username, c.type, count(t.category_idCategory) from tweet t, category c where t.category_idCategory = c.idCategory group by c.type, t.username ASC;
++-----------------+---------------+------------------------------+
+| username        | type          | count(t.category_idCategory) |
++-----------------+---------------+------------------------------+
+| cnn             | Entertainment |                            1 |
+| realDonaldTrump | Entertainment |                            4 |
+| cnn             | Other         |                           30 |
+| realDonaldTrump | Other         |                           30 |
+| cnn             | Politics      |                           65 |
+| realDonaldTrump | Politics      |                           50 |
+| cnn             | Sports        |                            2 |
+| realDonaldTrump | Sports        |                            3 |
+| cnn             | Technology    |                            5 |
+| realDonaldTrump | Technology    |                            9 |
++-----------------+---------------+------------------------------+

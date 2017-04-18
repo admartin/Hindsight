@@ -5,28 +5,37 @@
 function displayGraph() {
     alert("Work in Progress");
 
-    $('#graphResult').highcharts({
+    $('#results').highcharts({
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Fruit Consumption'
+            text: 'Twitter vs. User'
         },
         xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
+            categories: ['Animals', 'Technology', 'Food', 'Politics', 'Entertainment', 'Sports', 'Other (Personal)']
         },
         yAxis: {
             title: {
-                text: 'Fruit eaten'
+                text: 'Percentages'
             }
         },
         series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
+            name: 'Twitter Avg Percentages',
+            data: [5, 18, 10, 12, 24, 23, 8]
         }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }],
+            name: 'User',
+            data: [5, 7, 3, 7, 7, 7, 7]
+        }]
     });
+
+    //24726
+        //5%    =   1236
+        //18%   =   4450
+        //10%   =   2472
+        //12%   =   2967
+        //24%   =   5934
+        //23%   =   5687
+        //8%    =   1978
 
 }

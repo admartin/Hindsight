@@ -25,25 +25,28 @@ $requestMethod = "GET";
 if(isset($_SESSION['username'])) {
 
 
-        $query = '?screen_name=' . $_SESSION['username'] . '&count=5';
+        $query = '?screen_name=' . $_SESSION['username'] . '&count=100';
 
         $twitter = new TwitterAPIExchange($credentials);
         $result = json_decode($twitter->setGetfield($query)
             ->buildOauth($url, $requestMethod)
             ->performRequest(), $assoc = TRUE);
 
-        if($result["error"][0]["message"] != "") {
-            echo "Error With Twiiter API Exchange";
-        } else {
+
 
 
             $htmlBody = ""; // an empty html body response for now.
             $tweetsParagraph = "";
             $tweet = "";
+            $created_at = "";
+            $user = "";
+
 
             foreach ($result as $item) {
                 $tweet = $item['text'];
-                PrintTweetCategory($tweet);
+                $created_at = $item['created_at'];
+                $user = $_SESSION['username'];
+                PrintTweetCategory($tweet, $user, $created_at);
                 $tweetsParagraph .= "<p>" ."$tweet</p>";
             }
 
@@ -52,7 +55,6 @@ if(isset($_SESSION['username'])) {
 END;
 
             //echo $htmlBody;
-        }
 } else {
         echo "Error with session variable, username not set!";
         die();

@@ -9,6 +9,7 @@
 $username = $_GET["username"];
 
 if(isset($username)) {
+    session_destroy();
     session_start();
     $_SESSION["username"] = $username;
     header("Location: ../WebContent/main.html");

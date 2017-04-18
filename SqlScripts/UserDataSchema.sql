@@ -37,6 +37,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `UserData`.`cat_stats`
 -- -----------------------------------------------------
+
+DROP TABLE `UserData`.`cat_stats`;
+
 CREATE TABLE IF NOT EXISTS `UserData`.`cat_stats` (
   `tweet_total` INT NULL,
   `category_idCategory` INT(11) NOT NULL,
@@ -48,6 +51,11 @@ CREATE TABLE IF NOT EXISTS `UserData`.`cat_stats` (
     FOREIGN KEY (`category_idCategory`)
     REFERENCES `userdata`.`category` (`idCategory`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_id`
+	FOREIGN KEY (`user_idUser`)
+    REFERENCES `userdata`.`User` (`idUser`)
+	ON DELETE NO ACTION
     ON UPDATE NO ACTION
   )ENGINE = InnoDB;
 
@@ -59,14 +67,18 @@ USE `userdata` ;
 -- -----------------------------------------------------
 -- Table `UserData`.`Tweet`
 -- -----------------------------------------------------
+
+
+DROP TABLE IF EXISTS`UserData`.`Tweet` ;
+
 CREATE TABLE IF NOT EXISTS `UserData`.`Tweet` (
   `tweet` VARCHAR(150) NOT NULL,
   `posted` DATETIME NOT NULL,
   `Category_idCategory` INT NULL,
-  `User_idUser` INT NOT NULL,
+  `Username` VARCHAR(160) NOT NULL,
   PRIMARY KEY (`tweet`),
   INDEX `fk_Tweet_Category_idx` (`Category_idCategory` ASC),
-  INDEX `fk_Tweet_User1_idx` (`User_idUser` ASC))
+  INDEX `fk_Tweet_User1_idx` (`Username` ASC))
 ENGINE = InnoDB;
 
 
