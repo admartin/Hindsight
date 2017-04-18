@@ -19,21 +19,19 @@ $credentials = array(
 );
 
 $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
+$urlTweetEmbed = "https://publish.twitter.com/oembed";
 $requestMethod = "GET";
 
 
 if(isset($_SESSION['username'])) {
 
 
-        $query = '?screen_name=' . $_SESSION['username'] . '&count=100';
+        $query = '?screen_name=' . $_SESSION['username'] . '&count=10';
 
         $twitter = new TwitterAPIExchange($credentials);
         $result = json_decode($twitter->setGetfield($query)
             ->buildOauth($url, $requestMethod)
             ->performRequest(), $assoc = TRUE);
-
-
-
 
             $htmlBody = ""; // an empty html body response for now.
             $tweetsParagraph = "";
@@ -42,17 +40,31 @@ if(isset($_SESSION['username'])) {
             $user = "";
 
 
+            //id_str
+
             foreach ($result as $item) {
                 $tweet = $item['text'];
                 $created_at = $item['created_at'];
                 $user = $_SESSION['username'];
+
+                $oEmbedTwitter = new TwitterAPIExchange($credentials);
+                $queryTwo = $urlTweetEmbed . "?url=https://twitter.com/" . $_SESSION['username'] . "/status/"
+                    . $item['id_str'] . "&maxwidth=325";
+                $resultTwo = json_decode($oEmbedTwitter->setGetfield($query)
+                             ->buildOauth($queryTwo, $requestMethod)
+                             ->performRequest(), $assoc = TRUE);
+
+                echo $resultTwo['html'];
+
                 PrintTweetCategory($tweet, $user, $created_at);
-                $tweetsParagraph .= "<p>" ."$tweet</p>";
+                //$tweetsParagraph .= "<p>" ."$tweet</p>";
+
+                echo $resultTwo;
             }
 
-            $htmlBody = <<<END
-                    $tweetsParagraph;
-END;
+//            $htmlBody = <<<END
+//                    $tweetsParagraph;
+//END;
 
             //echo $htmlBody;
 } else {
