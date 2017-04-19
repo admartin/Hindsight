@@ -24,7 +24,7 @@ function displayGraph() {
         }
 
         console.log('Final Result' + finalResult);
-        $('#results').highcharts({
+        $('#resultsArea').highcharts({
             chart: {
                 type: 'bar'
             },
