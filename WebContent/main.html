@@ -47,10 +47,34 @@
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="#">Global Stats</a></li>
-                  <li><a href="aboutPage.html">About</a></li>
+                  <li><a href="#myModal" data-toggle="modal" data-target="#myModal">About</a></li>
                 </ul>
             </div>
         </nav>
+        
+        <!-- about modal popup -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <h4>Welcome to Hindsight!</h4>
+                    <h6>Created by Team Ninja Turtles</h6>
+                    <p> 
+                       The goal of this project was to create a twitter extension that allowed for
+                        a user to search any public twitter profile and view basic statistics not otherwise
+                        provided to a user by twitter. Using a complex parsing algorithm, Hindsight sorts 
+                        the tweets of the provided twitter profile and places them into categories. The user is 
+                        then able to compare the twitter profile's average tweets in each category to the overall
+                        twitter community average. The overall average was compiled by running our complex parsing
+                        algorithm over more than 30,000 random tweets pulled from the twitter community.
+                    </p>
+                </div>
+              </div>
+            </div>
+        </div>
         
     <!-- main content -->
     <div class="container">
