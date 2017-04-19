@@ -87,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="78" column="18" lean-forward="true" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+            <state relative-caret-position="628">
+              <caret line="76" column="32" lean-forward="false" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -129,7 +129,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserCategories.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserCategories.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/categories/UserCategories.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1405">
@@ -183,10 +183,10 @@
         <option value="$PROJECT_DIR$/php/displayGraph.php" />
         <option value="$PROJECT_DIR$/php/updateUsername.php" />
         <option value="$PROJECT_DIR$/javascript/changeUserName.js" />
-        <option value="$PROJECT_DIR$/WebContent/main.html" />
         <option value="$PROJECT_DIR$/javascript/searchTweets.js" />
         <option value="$PROJECT_DIR$/javascript/displayGraph.js" />
         <option value="$PROJECT_DIR$/php/categories/UserCategories.php" />
+        <option value="$PROJECT_DIR$/WebContent/main.html" />
       </list>
     </option>
   </component>
@@ -438,12 +438,12 @@
       <workItem from="1491745698375" duration="8754000" />
       <workItem from="1492008448719" duration="34045000" />
       <workItem from="1492485913442" duration="8458000" />
-      <workItem from="1492614615419" duration="1625000" />
+      <workItem from="1492614615419" duration="2757000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52882000" />
+    <option name="totallyTimeSpent" value="54014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="84" width="3872" height="2092" extended-state="7" />
@@ -815,14 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="78" column="18" lean-forward="true" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/searchTweets.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -846,6 +838,14 @@
           <folding>
             <marker date="1492616245514" expanded="true" signature="3080:3177" ph="INSERT INTO tweet... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="76" column="32" lean-forward="false" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
