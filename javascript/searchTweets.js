@@ -10,7 +10,7 @@ function displayTweets() {
 
         function (data) {
             alert(data);
-           $("#resultsArea").html(data);
+           $("#results").html(data);
 
         }
     );

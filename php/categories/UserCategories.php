@@ -63,7 +63,7 @@ class UserCategories
 
                     $execute = $dbh->prepare($sql);
                     $execute->execute(array($tweet, $date, 2, $username));
-                    echo "POLITICS!!";
+                    //echo "POLITICS!!";
                     //echo "Tweet is: " . $tweet;
 
                     break;
@@ -75,7 +75,7 @@ class UserCategories
                     $notOther = true;
                     $execute = $dbh->prepare($sql);
                     $execute->execute(array($tweet, $date, 3, $username));
-                    echo "entertainment!!";
+                    //echo "entertainment!!";
                     //echo "Tweet is: " . $tweet;
                     break;
                 }
@@ -85,7 +85,7 @@ class UserCategories
                     $notOther = true;
                     $execute = $dbh->prepare($sql);
                     $execute->execute(array($tweet, $date, 1, $username));
-                    echo "sports!!";
+                    //echo "sports!!";
                     //echo "Tweet is: " . $tweet;
                     break;
                 }
@@ -95,7 +95,7 @@ class UserCategories
                     $notOther = true;
                     $execute = $dbh->prepare($sql);
                     $execute->execute(array($tweet, $date, 5, $username));
-                    echo "animals!!";
+                    //echo "animals!!";
                     //echo "Tweet is: " . $tweet;
                     break;
                 }
@@ -105,7 +105,7 @@ class UserCategories
                     $notOther = true;
                     $execute = $dbh->prepare($sql);
                     $execute->execute(array($tweet, $date, 7, $username));
-                    echo "food!!";
+                    //echo "food!!";
                     //echo "Tweet is: " . $tweet;
                     break;
                 }
@@ -115,7 +115,7 @@ class UserCategories
                     $notOther = true;
                     $execute = $dbh->prepare($sql);
                     $execute->execute(array($tweet, $date, 4, $username));
-                    echo "technology!!";
+                    //echo "technology!!";
                     //echo "Tweet is: " . $tweet;
                     break;
                 }
