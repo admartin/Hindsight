@@ -4,114 +4,89 @@
 
 
 
-    <head>
-        <title>Hindsight</title>
+<head>
+    <title>Hindsight</title>
 
-        <!-- Jquery CDN -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
-        <!-- Bootstrap Core CSS -->
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
 
-        <!--Our own javascript-->
-        <script src="../javascript/searchTweets.js"></script>
-        <script src="../javascript/displayGraph.js"></script>
-        <script src="../javascript/changeUserName.js"></script>
+    <!--Our own javascript-->
+    <script src="../javascript/searchTweets.js"></script>
+    <script src="../javascript/displayGraph.js"></script>
+    <script src="../javascript/changeUserName.js"></script>
 
-        <!-- Navbar color override -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-    </head>
+    <!-- Navbar color override -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
 
-    <body onload="changeUserName()">
+<body onload="changeUserName()">
 
-    <!-- about modal popup -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-                <div class="modal-body">
-                    <h4>Welcome to Hindsight!</h4>
-                    <h6>Created by Team Ninja Turtles</h6>
-                    <p>
-                        The goal of this project was to create a twitter extension that allowed for
-                        a user to search any public twitter profile and view basic statistics not otherwise
-                        provided to a user by twitter. Using a complex parsing algorithm, Hindsight sorts
-                        the tweets of the provided twitter profile and places them into categories. The user is
-                        then able to compare the twitter profile's average tweets in each category to the overall
-                        twitter community average. The overall average was compiled by running our complex parsing
-                        algorithm over more than 30,000 random tweets pulled from the twitter community.
-                    </p>
-                    <p>
-                        Team Members:Viraj Patel,  Mike Kovalsky, Abbey Martin, Kishan Patel
-                    </p>
-                </div>
-            </div>
+<!--navbar-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Hindsight</a>
         </div>
+        <div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search" action="../php/startSession.php" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Search Username">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="global.html">Global Stats</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- main content -->
+<div class="container">
+
+    <div class="row">
+        <!-- sidebar -->
+        <div class="col-sm-2">
+            <ul id="sidebar" class="nav nav-stacked affix text-right">
+                <<<<<<< Updated upstream
+                <li ><a href="#"><span id="user">Username</span> <i class="glyphicon glyphicon-user"></i></a></li>
+                =======
+                <li><a href="#">Username <i class="glyphicon glyphicon-user"></i></a></li>
+                >>>>>>> Stashed changes
+                <li><a href="#" onclick="displayTweets()">Tweets <i class="fa fa-twitter"></i></a></li>
+                <li><a href="#" onclick="displayGraph()">Trends <i class="fa fa-line-chart"></i></a></li>
+            </ul>
+        </div>
+
+        <div id="results" class="col-sm-offset-3">
+
+        </div>
+
     </div>
 
-        <!--navbar-->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Hindsight</a>
-                </div>
-                <div class="col-sm-3 col-md-3">
-                    <form class="navbar-form" role="search" action="../php/startSession.php" method="GET">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Search Username">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">Global Stats</a></li>
-                  <li><a href="#" data-toggle="modal" data-target="#myModal">About</a></li>
-                </ul>
-            </div>
-        </nav>
-        
 
-        
-    <!-- main content -->
-    <div class="container">
-        
-  	     <div class="row">
-             <!-- sidebar -->
-              <div class="col-sm-2">
-                  <ul id="sidebar" class="nav nav-stacked affix text-right">
-                      <li ><a href="#"><span id="user">Username</span> <i class="glyphicon glyphicon-user"></i></a></li>
-                        <br><br><br><br><br>
-                        <li><a href="#" onclick="displayTweets()">Tweets <i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" onclick="displayGraph()">Trends <i class="fa fa-line-chart"></i></a></li>
-                    </ul>
-               </div>
+    <!-- For some reason our JS only puts things in the results area, and never in the resultsArea, this is very strange.  -->
 
-             <div id="results" class="col-sm-offset-3">
+    <div class="resultsArea" id="resultsArea" >
 
-             </div>
-
-        </div>
-
-
-        <!-- For some reason our JS only puts things in the results area, and never in the resultsArea, this is very strange.  -->
-
-        <div class="resultsArea" id="resultsArea" >
-
-        </div>
+    </div>
 
 
 
 
 
-        </div>
-    </body>
+</div>
+</body>
 </html>
