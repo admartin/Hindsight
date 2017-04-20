@@ -7,12 +7,19 @@ function displayGraph() {
 
     var finalResult = [0, 0, 0, 0, 0, 0, 0];
     var result = null;
+    var table = null;
 
     $.when(
         $.get("../php/displayGraph.php",
             function (data) {
                 console.log("Data" + data);
                 result = JSON.parse(data);
+            }
+        ),
+        $.get("../php/displayTweetsTable.php",
+            function (data) {
+                console.log(data);
+                table = data;
             }
         )
     ).then(function () {
@@ -103,6 +110,9 @@ function displayGraph() {
             }]
         });
 
+        $("#resultsArea").html(table);
+        $("#sidebar").hide();
+
     });
 
 
@@ -117,6 +127,7 @@ function displayGraph() {
         //23%   =   5687
         //8%    =   1978
 
+    //$("#sidebar").hide();
 }
 
 

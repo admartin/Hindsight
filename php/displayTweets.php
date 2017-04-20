@@ -26,7 +26,7 @@ $requestMethod = "GET";
 if(isset($_SESSION['username'])) {
 
 
-        $query = '?screen_name=' . $_SESSION['username'] . '&count=100';
+        $query = '?screen_name=' . $_SESSION['username'] . '&count=50';
 
         $twitter = new TwitterAPIExchange($credentials);
         $result = json_decode($twitter->setGetfield($query)

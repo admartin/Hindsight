@@ -122,7 +122,7 @@ class UserCategories
             }
 
             if($notOther == false) {
-                echo "OTHER";
+                //echo "OTHER";
                 $execute = $dbh->prepare($sql);
                 $execute->execute(array($tweet, $date, 6, $username));
             }

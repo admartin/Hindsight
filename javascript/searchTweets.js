@@ -5,11 +5,16 @@
 
 function displayTweets() {
 
+    $body = $("body");
+
+    $(document).on({
+        ajaxStart: function() { $body.addClass("loading");    },
+        ajaxStop: function() { $body.removeClass("loading"); }
+    });
 
     $.get("../php/displayTweets.php",
 
         function (data) {
-            alert(data);
            $("#results").html(data);
 
         }
