@@ -24,30 +24,84 @@ function displayGraph() {
         }
 
         console.log('Final Result' + finalResult);
+        // $('#results').highcharts({
+        //     chart: {
+        //         type: 'bar'
+        //     },
+        //     title: {
+        //         text: 'Twitter vs. User'
+        //     },
+        //     xAxis: {
+        //         categories: ['Animals', 'Technology', 'Food', 'Politics', 'Entertainment', 'Sports', 'Other (Personal)']
+        //     },
+        //     yAxis: {
+        //         title: {
+        //             text: 'Percentages'
+        //         }
+        //     },
+        //     series: [{
+        //         name: 'Twitter Avg Percentages',
+        //         data: [5, 18, 10, 12, 24, 23, 8]
+        //     }, {
+        //         name: 'User',
+        //         data: finalResult
+        //     }]
+        // });
+
         $('#results').highcharts({
             chart: {
-                type: 'bar'
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
             },
             title: {
-                text: 'Twitter vs. User'
+                text: "User Specific Tweets"
             },
-            xAxis: {
-                categories: ['Animals', 'Technology', 'Food', 'Politics', 'Entertainment', 'Sports', 'Other (Personal)']
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
             },
-            yAxis: {
-                title: {
-                    text: 'Percentages'
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
                 }
             },
             series: [{
-                name: 'Twitter Avg Percentages',
-                data: [5, 18, 10, 12, 24, 23, 8]
-            }, {
-                name: 'User',
-                data: finalResult
+                name: 'Categories',
+                colorByPoint: true,
+                data: [{
+                    name: 'Animals',
+                    y: finalResult[0]
+                }, {
+                    name: 'Technology',
+                    y: finalResult[1]
+                }, {
+                    name: 'Food',
+                    y: finalResult[2]
+                }, {
+                    name: 'Politics',
+                    y: finalResult[3]
+                }, {
+                    name: 'Entertainment',
+                    y: finalResult[4]
+                }, {
+                    name: 'Sports',
+                    y: finalResult[5]
+                }, {
+                    name: 'Other/Personal',
+                    y: finalResult[6]
+                }
+                ]
             }]
         });
-
 
     });
 
